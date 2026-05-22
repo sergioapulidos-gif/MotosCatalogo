@@ -2,7 +2,7 @@ package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+// Gestiona la conexion entre Java y PostgreSQL
 public class ConexionBD {
 
     private static final String URL =
