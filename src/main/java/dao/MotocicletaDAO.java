@@ -123,4 +123,40 @@ public class MotocicletaDAO {
             e.printStackTrace();
         }
     }
+    public void eliminarMotocicleta(int idEliminar) {
+
+        String sql =
+                "DELETE FROM motocicleta WHERE id = ?";
+
+        try {
+
+            Connection conexion =
+                    ConexionBD.conectar();
+
+            PreparedStatement ps =
+                    conexion.prepareStatement(sql);
+
+            ps.setInt(1, idEliminar);
+
+            int filas =
+                    ps.executeUpdate();
+
+            if(filas > 0) {
+
+                System.out.println(
+                        "Motocicleta eliminada"
+                );
+
+            } else {
+
+                System.out.println(
+                        "No existe motocicleta con ese ID"
+                );
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
 }

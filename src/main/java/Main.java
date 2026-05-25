@@ -7,11 +7,6 @@ public class Main {
         MotocicletaDAO dao =
                 new MotocicletaDAO();
 
-        dao.agregarMotocicleta(
-                "NKD 125",
-                125,
-                9500000,
-                1
-        );
+        dao.eliminarMotocicleta(99);
     }
 }
