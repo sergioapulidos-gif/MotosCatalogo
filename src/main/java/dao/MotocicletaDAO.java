@@ -85,4 +85,42 @@ public class MotocicletaDAO {
             e.printStackTrace();
         }
     }
+    public void agregarMotocicleta(
+            String modelo,
+            int cilindraje,
+            double precio,
+            int marcaId
+    ) {
+
+        String sql =
+                "INSERT INTO motocicleta(modelo, cilindraje, precio, marca_id) " +
+                        "VALUES (?, ?, ?, ?)";
+
+        try {
+
+            Connection conexion =
+                    ConexionBD.conectar();
+
+            PreparedStatement ps =
+                    conexion.prepareStatement(sql);
+
+            ps.setString(1, modelo);
+
+            ps.setInt(2, cilindraje);
+
+            ps.setDouble(3, precio);
+
+            ps.setInt(4, marcaId);
+
+            ps.executeUpdate();
+
+            System.out.println(
+                    "Motocicleta agregada correctamente"
+            );
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
 }
