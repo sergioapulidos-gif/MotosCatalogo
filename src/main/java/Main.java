@@ -7,6 +7,11 @@ public class Main {
         MotocicletaDAO dao =
                 new MotocicletaDAO();
 
-        dao.eliminarMotocicleta(99);
+        dao.actualizarMotocicleta(
+                99,
+                "Moto X",
+                500,
+                20000000
+        );
     }
 }

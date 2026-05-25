@@ -159,4 +159,53 @@ public class MotocicletaDAO {
             e.printStackTrace();
         }
     }
+    public void actualizarMotocicleta(
+            int idActualizar,
+            String nuevoModelo,
+            int nuevoCilindraje,
+            double nuevoPrecio
+    ) {
+
+        String sql =
+                "UPDATE motocicleta " +
+                        "SET modelo = ?, cilindraje = ?, precio = ? " +
+                        "WHERE id = ?";
+
+        try {
+
+            Connection conexion =
+                    ConexionBD.conectar();
+
+            PreparedStatement ps =
+                    conexion.prepareStatement(sql);
+
+            ps.setString(1, nuevoModelo);
+
+            ps.setInt(2, nuevoCilindraje);
+
+            ps.setDouble(3, nuevoPrecio);
+
+            ps.setInt(4, idActualizar);
+
+            int filas =
+                    ps.executeUpdate();
+
+            if(filas > 0) {
+
+                System.out.println(
+                        "Motocicleta actualizada"
+                );
+
+            } else {
+
+                System.out.println(
+                        "No existe motocicleta con ese ID"
+                );
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
 }
