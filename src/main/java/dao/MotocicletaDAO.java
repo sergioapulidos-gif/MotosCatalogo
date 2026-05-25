@@ -41,4 +41,48 @@ public class MotocicletaDAO {
             e.printStackTrace();
         }
     }
+    public void consultarPorId(int idBuscar) {
+
+        String sql =
+                "SELECT * FROM motocicleta WHERE id = ?";
+
+        try {
+
+            Connection conexion =
+                    ConexionBD.conectar();
+
+            PreparedStatement ps =
+                    conexion.prepareStatement(sql);
+
+            ps.setInt(1, idBuscar);
+
+            ResultSet rs =
+                    ps.executeQuery();
+
+            if(rs.next()) {
+
+                System.out.println("ID: "
+                        + rs.getInt("id"));
+
+                System.out.println("Modelo: "
+                        + rs.getString("modelo"));
+
+                System.out.println("Cilindraje: "
+                        + rs.getInt("cilindraje"));
+
+                System.out.println("Precio: "
+                        + rs.getDouble("precio"));
+
+            } else {
+
+                System.out.println(
+                        "Motocicleta no encontrada"
+                );
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
 }

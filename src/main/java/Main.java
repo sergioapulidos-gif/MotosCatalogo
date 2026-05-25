@@ -7,6 +7,6 @@ public class Main {
         MotocicletaDAO dao =
                 new MotocicletaDAO();
 
-        dao.consultarTodas();
+        dao.consultarPorId(1);
     }
 }
