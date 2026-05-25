@@ -59,6 +59,12 @@ Tablas utilizadas:
 
 ---
 
+## Diagrama UML
+
+![Diagrama UML](docs/DiagramaCatalogoMotos.drawio.png)
+
+---
+
 ## Autor
 
 Sergio Pulido
