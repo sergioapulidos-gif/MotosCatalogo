@@ -208,4 +208,46 @@ public class MotocicletaDAO {
             e.printStackTrace();
         }
     }
+    public void filtrarPorCilindraje(
+            int cilindrajeMinimo
+    ) {
+
+        String sql =
+                "SELECT * FROM motocicleta " +
+                        "WHERE cilindraje >= ?";
+
+        try {
+
+            Connection conexion =
+                    ConexionBD.conectar();
+
+            PreparedStatement ps =
+                    conexion.prepareStatement(sql);
+
+            ps.setInt(1, cilindrajeMinimo);
+
+            ResultSet rs =
+                    ps.executeQuery();
+
+            System.out.println(
+                    "MOTOCICLETAS ENCONTRADAS"
+            );
+
+            while(rs.next()) {
+
+                System.out.println(
+                        rs.getInt("id")
+                                + " - " +
+                                rs.getString("modelo")
+                                + " - " +
+                                rs.getInt("cilindraje")
+                                + " cc"
+                );
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
 }

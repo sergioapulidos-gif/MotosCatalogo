@@ -7,11 +7,6 @@ public class Main {
         MotocicletaDAO dao =
                 new MotocicletaDAO();
 
-        dao.actualizarMotocicleta(
-                99,
-                "Moto X",
-                500,
-                20000000
-        );
+        dao.filtrarPorCilindraje(800);
     }
 }
